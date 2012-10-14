@@ -1,0 +1,43 @@
+#!/bin/sh
+
+# Remember that this command should use builtin echo, not '/bin/echo'. :-p
+
+echo_colors ()
+{
+  local MSG=$1
+  local COLOR=$2
+  local PREFIX=
+  local SUFFIX="\033[0m"
+  
+  case "$COLOR" in
+    red)
+      PREFIX="\033[0;31m"
+      ;;
+    green)
+      PREFIX="\033[0;32m"
+      ;;
+    brown)
+      PREFIX="\033[0;33m"
+      ;;
+    blue)
+      PREFIX="\033[0;34m"
+      ;;
+    purple)
+      PREFIX="\033[0;35m"
+      ;;
+    cyan)
+      PREFIX="\033[0;36m"
+      ;;
+    gray)
+      PREFIX="\033[0;37m"
+      ;;
+       *)
+      PREFIX=""
+      SUFFIX=""
+      ;;
+    esac
+  
+  MSG="$PREFIX$MSG$SUFFIX"
+  set builtin
+  echo -e "$MSG"
+}
