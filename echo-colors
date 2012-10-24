@@ -1,8 +1,5 @@
-#!/bin/sh
-
 # Remember that this command should use builtin echo, not '/bin/echo'. :-p
-
-echo_colors ()
+echo-colors ()
 {
   local MSG=$1
   local COLOR=$2
